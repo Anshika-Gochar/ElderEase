@@ -1,0 +1,66 @@
+# Dependencies
+node_modules/
+**/node_modules/
+.pnp
+.pnp.js
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+
+# Environment files (CRITICAL — never commit keys)
+.env
+.env.local
+.env.production
+.env.*.local
+backend/.env
+ai-service/.env
+apps/client-elder/.env
+apps/client-caregiver/.env
+
+# Explicitly ensure .env.example templates are NOT ignored
+!.env.example
+!**/.env.example
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Uploads (user-generated content)
+backend/uploads/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Coverage
+coverage/
+.nyc_output/
+htmlcov/
+.firebase/

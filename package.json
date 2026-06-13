@@ -1,0 +1,20 @@
+{
+  "name": "elderease",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/client-elder",
+    "apps/client-caregiver",
+    "backend"
+  ],
+  "scripts": {
+    "dev:elder": "npm run dev --workspace=apps/client-elder",
+    "dev:caregiver": "npm run dev --workspace=apps/client-caregiver",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:elder\" \"npm run dev:caregiver\"",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

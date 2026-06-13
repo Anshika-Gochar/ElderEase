@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets & base styles ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #F5F4F0;
+  color: #1A202C;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* ── Card component ── */
+@layer components {
+  .card {
+    @apply bg-white rounded-[12px] shadow-[0_1px_3px_rgba(0,0,0,0.08)] p-5;
+  }
+
+  .btn-primary {
+    @apply bg-[#2BBD8E] hover:bg-[#24a87c] text-white font-semibold py-2.5 px-5
+           rounded-[8px] transition-colors duration-200 disabled:opacity-50
+           disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-[#1A202C] font-semibold py-2.5 px-5
+           rounded-[8px] border border-gray-200 transition-colors duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-[#EF4444] hover:bg-red-600 text-white font-semibold py-2.5 px-5
+           rounded-[8px] transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full border border-gray-200 rounded-[8px] px-4 py-3 text-[#1A202C]
+           placeholder-[#718096] focus:outline-none focus:ring-2 focus:ring-[#2BBD8E]
+           focus:border-transparent transition-all duration-200 bg-white;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-[#1A202C] mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center justify-center px-2 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-red {
+    @apply badge bg-red-100 text-red-700;
+  }
+
+  .badge-amber {
+    @apply badge bg-amber-100 text-amber-700;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-100 text-emerald-700;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-700;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-[8px] text-sm font-medium
+           text-[#718096] hover:bg-gray-50 hover:text-[#1A202C] transition-all duration-150
+           cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply nav-item bg-[#EEF6FF] text-[#1E6FD9];
+  }
+}
+
+/* ── Page transitions & animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.page-enter {
+  animation: fadeIn 0.25s ease forwards;
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* ── Recharts customization ── */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.recharts-default-tooltip {
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* ── SOS pulse animation ── */
+@keyframes sosPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); }
+  50%       { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+}
+
+.sos-pulse {
+  animation: sosPulse 1.5s ease-in-out infinite;
+}
